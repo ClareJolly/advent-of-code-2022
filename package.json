@@ -7,7 +7,7 @@
   "scope": "@ClareJolly",
   "scripts": {
     "test": "jest --config ./jest.config.js",
-    "day": "ts-node ./src",
+    "day": "ts-node --log-error ./src",
     "dev": "ts-node --log-error  ./src",
     "ts-node": "./node_modules/.bin/ts-node",
     "tsc": "tsc",

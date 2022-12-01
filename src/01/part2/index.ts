@@ -1,19 +1,19 @@
-import { arrToNumbers } from '../../helpers'
-import getIncreases from '../helpers/getIncreases'
+import { batchByBlankLines, arrToNumbers } from '../../helpers'
 
 const part2 = (inputData: string[]): number => {
-  const data = arrToNumbers(inputData)
+  const elvesItems = batchByBlankLines(inputData).map(batch => arrToNumbers(batch))
 
-  let batches: number[] = []
+  const totals = elvesItems.map(items =>
+    items.reduce((a, b) => {
+      return a + b
+    }, 0),
+  )
 
-  let i = 0
+  const topElves = totals.sort((a, b) => b - a)
 
-  while (i < data.length - 2) {
-    batches.push(data[i] + data[i + 1] + data[i + 2])
-    i++
-  }
-
-  return getIncreases(batches)
+  return topElves.slice(0, 3).reduce((acc, elf) => {
+    return acc + elf
+  }, 0)
 }
 
 export default part2

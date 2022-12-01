@@ -23,5 +23,5 @@
     "jsx": "react"
   },
   "include": ["src", "test"],
-  "exclude": ["src/template/**"]
+  "exclude": ["src/template/**", "node_modules"]
 }

@@ -1,48 +1,76 @@
 # 🎄 🎅 🎄 Day 1: Sonar Sweep 🎄 🎅 🎄
 
-As the submarine drops below the surface of the ocean, it automatically performs a sonar sweep of the nearby sea floor. On a small screen, the sonar sweep report ([your puzzle input](data/input.txt)) appears: each line is a measurement of the sea floor depth as the sweep looks further and further away from the submarine.
+The jungle must be too overgrown and difficult to navigate in vehicles or access from the air; the Elves' expedition traditionally goes on foot. As your boats approach land, the Elves begin taking inventory of their supplies. One important consideration is food - in particular, the number of Calories each Elf is carrying [(your puzzle input)](data/input.txt).
 
-For example, suppose you had the following report:
+The Elves take turns writing down the number of Calories contained by the various meals, snacks, rations, etc. that they've brought with them, one item per line. Each Elf separates their own inventory from the previous Elf's inventory (if any) by a blank line.
+
+For example, suppose the Elves finish writing their items' Calories and end up with the following list:
 
 ```
-199
-200
-208
-210
-200
-207
-240
-269
-260
-263
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
 ```
 
-This report indicates that, scanning outward from the submarine, the sonar sweep found depths of 199, 200, 208, 210, and so on.
+This list represents the Calories of the food carried by five Elves:
+
+- The first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories.
+- The second Elf is carrying one food item with 4000 Calories.
+- The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories.
+- The fourth Elf is carrying food with 7000, 8000, and 9000 Calories, a total of 24000 Calories.
+- The fifth Elf is carrying one food item with 10000 Calories.
+
+In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they'd like to know how many Calories are being carried by the Elf carrying the most Calories. In the example above, this is 24000 (carried by the fourth Elf).
+
+Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
 
 ## Part 1
 
-The first order of business is to figure out how quickly the depth increases, just so you know what you're dealing with - you never know if the keys will get carried into deeper water by an ocean current or a fish or something.
+The Elves take turns writing down the number of Calories contained by the various meals, snacks, rations, etc. that they've brought with them, one item per line. Each Elf separates their own inventory from the previous Elf's inventory (if any) by a blank line.
 
-To do this, count the number of times a depth measurement increases from the previous measurement. (There is no measurement before the first measurement.) In the example above, the changes are as follows:
+For example, suppose the Elves finish writing their items' Calories and end up with the following list:
 
 ```
-199 (N/A - no previous measurement)
-200 (increased)
-208 (increased)
-210 (increased)
-200 (decreased)
-207 (increased)
-240 (increased)
-269 (increased)
-260 (decreased)
-263 (increased)
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
 ```
 
-In this example, there are 7 measurements that are larger than the previous measurement.
+This list represents the Calories of the food carried by five Elves:
 
-How many measurements are larger than the previous measurement?
+- The first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories.
+- The second Elf is carrying one food item with 4000 Calories.
+- The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories.
+- The fourth Elf is carrying food with 7000, 8000, and 9000 Calories, a total of 24000 Calories.
+- The fifth Elf is carrying one food item with 10000 Calories.
+
+In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they'd like to know how many Calories are being carried by the Elf carrying the most Calories. In the example above, this is 24000 (carried by the fourth Elf).
+
+Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
 [Solution Part 1](./part1/index.ts)
 
@@ -50,43 +78,13 @@ How many measurements are larger than the previous measurement?
 
 ## Part 2
 
-Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.
+By the time you calculate the answer to the Elves' question, they've already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
 
-Instead, consider sums of a three-measurement sliding window. Again considering the above example:
+To avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories. That way, even if one of those Elves runs out of snacks, they still have two backups.
 
-```
-199  A
-200  A B
-208  A B C
-210    B C D
-200  E   C D
-207  E F   D
-240  E F G
-269    F G H
-260      G H
-263        H
-```
+In the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories). The sum of the Calories carried by these three elves is 45000.
 
-Start by comparing the first and second three-measurement windows. The measurements in the first window are marked A (199, 200, 208); their sum is 199 + 200 + 208 = 607. The second window is marked B (200, 208, 210); its sum is 618. The sum of measurements in the second window is larger than the sum of the first, so this first comparison increased.
-
-Your goal now is to count the number of times the sum of measurements in this sliding window increases from the previous sum. So, compare A with B, then compare B with C, then C with D, and so on. Stop when there aren't enough measurements left to create a new three-measurement sum.
-
-In the above example, the sum of each three-measurement window is as follows:
-
-```
-A: 607 (N/A - no previous sum)
-B: 618 (increased)
-C: 618 (no change)
-D: 617 (decreased)
-E: 647 (increased)
-F: 716 (increased)
-G: 769 (increased)
-H: 792 (increased)
-```
-
-In this example, there are 5 sums that are larger than the previous sum.
-
-Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?
+Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?
 
 [Solution Part 2](./part2/index.ts)
 
