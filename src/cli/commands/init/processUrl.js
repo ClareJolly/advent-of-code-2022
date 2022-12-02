@@ -7,14 +7,20 @@ const chalk = require('chalk')
 
 const fetchHtml = async url => {
   const cookie = process.env.AOC_SESSION
-  let body = ''
+  // let challenge = ''
+  // let input = ''
   const options = {
     headers: {
       cookie: `session=${cookie}`,
     },
   }
-  await fetch(url, options).then(res => (body = res.text()))
-  return body
+  const challengeResponse = await fetch(url, options)
+  const challenge = await challengeResponse.text()
+  const inputResponse = await fetch(`${url}/input`, options)
+  const input = await inputResponse.text()
+
+
+  return { challenge, input }
 }
 
 const replacements = {
@@ -72,6 +78,9 @@ const getTitle = document => {
 
 const processUrl = async ({ url, day }) => {
   try {
+    const { challenge: html, input } = await fetchHtml(url)
+    fs.writeFileSync(path.join(__dirname, 'input.txt'), input)
+
     const template = path.join(__dirname, '../../../tmp')
     const dayFolder = String(day).padStart(2, '0')
     // const dayFolder = String(day)
@@ -81,7 +90,6 @@ const processUrl = async ({ url, day }) => {
       console.log(chalk.magenta('day already initialised'))
       return
     }
-    const html = await fetchHtml(url)
 
     const dom = new JSDOM(html)
     const { window } = dom
@@ -102,6 +110,10 @@ const processUrl = async ({ url, day }) => {
     fs.writeFileSync(
       path.join(copyTo, 'summary.md'),
       description.join('\n\n') + solution1.join('\n\n'),
+    )
+    fs.writeFileSync(
+      path.join(copyTo, 'data/input.txt'),
+      input
     )
 
     const indexRow = `| [${title}](src/${dayFolder}/summary.md#readme) |      |      |\n`
