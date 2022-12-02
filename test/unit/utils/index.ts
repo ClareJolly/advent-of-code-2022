@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { fileToArray } from '../../../src/helpers'
 import path from 'path'
 

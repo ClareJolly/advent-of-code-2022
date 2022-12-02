@@ -12,7 +12,7 @@ describe('fileToArray', () => {
     mockFs(fileStruct)
   })
 
-  afterAll(() => {
+  afterEach(() => {
     mockFs.restore()
   })
 
