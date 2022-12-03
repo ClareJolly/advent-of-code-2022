@@ -71,15 +71,14 @@ const getDescription = document => {
 
 const getTitle = document => {
   const sub = document.querySelectorAll(`article.day-desc > h2`)
-  return Array.from(sub)
+  const title = Array.from(sub)
     .map(p => p.innerHTML.replace(/\s?---\s?/g, ''))
-    .slice(0, -1)
+  return title[0]
 }
 
 const processUrl = async ({ url, day }) => {
   try {
     const { challenge: html, input } = await fetchHtml(url)
-    fs.writeFileSync(path.join(__dirname, 'input.txt'), input)
 
     const template = path.join(__dirname, '../../../tmp')
     const dayFolder = String(day).padStart(2, '0')
@@ -97,7 +96,7 @@ const processUrl = async ({ url, day }) => {
     const title = url ? getTitle(document) : '<TBC>'
     const description = url ? getDescription(document) : '<TBC>'
 
-    // fs.copySync(template, copyTo)
+    fs.copySync(template, copyTo)
 
     const solution1 = [
       `[Solution Part 1](./part1/index.ts)`,
@@ -106,11 +105,12 @@ const processUrl = async ({ url, day }) => {
       'TBA', `[Solution Part 2](./part2/index.ts)`,
       `🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄`,
     ]
-
+    fs.ensureFileSync(path.join(copyTo, 'summary.md'))
     fs.writeFileSync(
       path.join(copyTo, 'summary.md'),
       description.join('\n\n') + solution1.join('\n\n'),
     )
+    fs.ensureFileSync(path.join(copyTo, 'data/input.txt'))
     fs.writeFileSync(
       path.join(copyTo, 'data/input.txt'),
       input
