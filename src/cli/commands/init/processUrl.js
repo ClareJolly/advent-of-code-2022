@@ -7,8 +7,6 @@ const chalk = require('chalk')
 
 const fetchHtml = async url => {
   const cookie = process.env.AOC_SESSION
-  // let challenge = ''
-  // let input = ''
   const options = {
     headers: {
       cookie: `session=${cookie}`,
@@ -56,13 +54,9 @@ const getDescription = document => {
     const tag = p.tagName.toLowerCase()
     const text = p.innerHTML
     const replacementsToUse = replacements[tag] || []
-    // const regex = /<em class=\"star\">star<\/em > /g;
 
     const replaceRegex = [...replacementsToUse, ...replacements.generic]
     return replaceRegex.reduce((a, [regex, replacement]) => {
-      // if (tag === 'pre') {
-
-      // }
       return a.replace(regex, replacement)
     }, text)
   })
@@ -82,7 +76,6 @@ const processUrl = async ({ url, day }) => {
 
     const template = path.join(__dirname, '../../../tmp')
     const dayFolder = String(day).padStart(2, '0')
-    // const dayFolder = String(day)
     const copyTo = path.join(__dirname, '../../..', dayFolder)
 
     if (fs.existsSync(copyTo)) {
@@ -99,6 +92,7 @@ const processUrl = async ({ url, day }) => {
     fs.copySync(template, copyTo)
 
     const solution1 = [
+      '',
       `[Solution Part 1](./part1/index.ts)`,
       `🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄`,
       '## Part 2',
@@ -110,17 +104,18 @@ const processUrl = async ({ url, day }) => {
       path.join(copyTo, 'summary.md'),
       description.join('\n\n') + solution1.join('\n\n'),
     )
-    fs.ensureFileSync(path.join(copyTo, 'data/input.txt'))
+
+    fs.ensureFileSync(path.join(copyTo, 'data/input2.txt'))
     fs.writeFileSync(
-      path.join(copyTo, 'data/input.txt'),
-      input
+      path.join(copyTo, 'data/input2.txt'),
+      input.replace(/^\s+|\s+$/g, '')
     )
 
     const indexRow = `| [${title}](src/${dayFolder}/summary.md#readme) |      |      |\n`
     fs.appendFileSync(path.join(__dirname, '../../../../README.md'), indexRow)
+
     return {
       title,
-
       description,
     }
 
