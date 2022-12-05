@@ -78,7 +78,7 @@ const processUrl = async ({ url, day }) => {
     const dayFolder = String(day).padStart(2, '0')
     const copyTo = path.join(__dirname, '../../..', dayFolder)
 
-    if (fs.existsSync(copyTo)) {
+    if (fs.existsSync(path.join(copyTo, 'index.ts'))) {
       console.log(chalk.magenta('day already initialised'))
       return
     }
