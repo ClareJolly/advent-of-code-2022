@@ -105,9 +105,9 @@ const processUrl = async ({ url, day }) => {
       description.join('\n\n') + solution1.join('\n\n'),
     )
 
-    fs.ensureFileSync(path.join(copyTo, 'data/input2.txt'))
+    fs.ensureFileSync(path.join(copyTo, 'data/input.txt'))
     fs.writeFileSync(
-      path.join(copyTo, 'data/input2.txt'),
+      path.join(copyTo, 'data/input.txt'),
       input.replace(/^\s+|\s+$/g, '')
     )
 
