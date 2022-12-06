@@ -8,5 +8,5 @@ module.exports = {
   collectCoverage: true,
   clearMocks: true,
   coverageDirectory: 'coverage',
-  testPathIgnorePatterns: ['./src/template'],
+  testPathIgnorePatterns: ['./src/template', './src/tmp'],
 }
