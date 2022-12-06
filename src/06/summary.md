@@ -1,10 +1,10 @@
-# 🎄 🎅 🎄 Day 6: Tuning Trouble 🎄 🎅 🎄 
+# 🎄 🎅 🎄 Day 6: Tuning Trouble 🎄 🎅 🎄
 
-The preparations are finally complete; you and the Elves leave camp on foot and begin to make your way toward the <em class="star">star** fruit grove.
+The preparations are finally complete; you and the Elves leave camp on foot and begin to make your way toward the **star** fruit grove.
 
 As you move through the dense undergrowth, one of the Elves gives you a handheld **device**. He says that it has many fancy features, but the most important one to set up right now is the **communication system**.
 
-However, because he's heard you have <a href="/2016/day/6">significant</a> <a href="/2016/day/25">experience</a> <a href="/2019/day/7">dealing</a> <a href="/2019/day/9">with</a> <a href="/2019/day/16">signal-based</a> <a href="/2021/day/25">systems</a>, he convinced the other Elves that it would be okay to give you their one malfunctioning device - surely you'll have no problem fixing it.
+However, because he's heard you have <a href="https://adventofcode.com/2016/day/6">significant</a> <a href="https://adventofcode.com/2016/day/25">experience</a> <a href="https://adventofcode.com/2019/day/7">dealing</a> <a href="https://adventofcode.com/2019/day/9">with</a> <a href="https://adventofcode.com/2019/day/16">signal-based</a> <a href="https://adventofcode.com/2021/day/25">systems</a>, he convinced the other Elves that it would be okay to give you their one malfunctioning device - surely you'll have no problem fixing it.
 
 As if inspired by comedic timing, the device emits a few <span title="The magic smoke, on the other hand, seems to be contained... FOR NOW!">colorful sparks</span>.
 
@@ -16,7 +16,6 @@ The device will send your subroutine a datastream buffer ([(your puzzle input)](
 
 For example, suppose you receive the following datastream buffer:
 
-
 ```
 mjqjpqmgbljsphdztnvjfqwrcgsmlb
 ```
@@ -27,12 +26,10 @@ The first time a marker appears is after the **seventh** character arrives. Once
 
 Here are a few more examples:
 
-
 - `bvwbjplbgvbhsrlpgdmjqwftvncz`: first marker after character `**5**`
 - `nppdvjthqldpwncqszvftbrmjlhg`: first marker after character `**6**`
 - `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`: first marker after character `**10**`
 - `zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`: first marker after character `**11**`
-
 
 **How many characters need to be processed before the first start-of-packet marker is detected?**
 
@@ -42,7 +39,19 @@ Here are a few more examples:
 
 ## Part 2
 
-TBA
+Your device's communication system is correctly detecting packets, but still isn't working. It looks like it also needs to look for messages.
+
+A start-of-message marker is just like a start-of-packet marker, except it consists of 14 distinct characters rather than 4.
+
+Here are the first positions of start-of-message markers for all of the above examples:
+
+- `mjqjpqmgbljsphdztnvjfqwrcgsmlb`: first marker after character `19`
+- `bvwbjplbgvbhsrlpgdmjqwftvncz`: first marker after character `23`
+- `nppdvjthqldpwncqszvftbrmjlhg`: first marker after character `23`
+- `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`: first marker after character `29`
+- `zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`: first marker after character `26`
+
+**How many characters need to be processed before the first start-of-message marker is detected?**
 
 [Solution Part 2](./part2/index.ts)
 
