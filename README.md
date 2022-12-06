@@ -4,7 +4,9 @@ My solutions to Advent of Code 2022
 
 I will be using TypeScript/JavaScript/NodeJS mostly
 
-[Advent of Code](https://adventofcode.com/2021)
+Most of these will be the initial submission, before any refactoring.
+
+[Advent of Code](https://adventofcode.com/2022)
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
 
