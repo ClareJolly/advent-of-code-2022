@@ -7,6 +7,7 @@ const part2 = (inputData: string[]): number => {
     const checking = data.slice(i - 13, i + 1)
     if ([...new Set(checking)].length === 14) return i + 1
   }
+  return 0
 }
 
 export default part2
