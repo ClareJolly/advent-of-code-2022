@@ -8,6 +8,26 @@ I will be using TypeScript/JavaScript/NodeJS mostly
 
 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
 
+## Setup and running code
+
+### CLI
+
+- `yarn`
+
+- run `npm link`
+
+- create .env file and add the `AOC_SESSION` variable - can be found by logging into the adventofcode website, then checking cookies for the session cookie and copy the value
+
+- `aoc init` - then pass in the year and day to fetch the challenge details from the website and save to markdown and prepare template files
+
+🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
+
+### Running a days files
+
+`yarn day -d 01` will run the day 1 files. will default to using the real input data (rather than test). Can pass the `-t` flag for test data - or `-r `for real input data
+
+🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄 🎄
+
 ## The Story
 
 Santa's reindeer typically eat regular reindeer food, but they need a lot of magical energy to deliver presents on Christmas. For that, their favorite snack is a special type of star ⭐ fruit that only grows deep in the jungle. The Elves have brought you on their annual expedition to the grove where the fruit grows.
