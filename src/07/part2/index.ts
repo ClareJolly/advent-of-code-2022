@@ -62,12 +62,11 @@ const part2 = (inputData: string[]): number => {
     dirSizes[d.fullPath] = totalSize
   })
 
-  return Object.values(dirSizes).reduce((a, b) => {
-    if (b < 100000) {
-      return a + b
-    }
-    return a
-  }, 0)
+  const currentUnused = filesystemAvailable - allFilesSize
+  const minSpaceNeeded = neededSpace - currentUnused
+
+  const sizes = Object.values(dirSizes).sort((a, b) => a - b)
+  return sizes.filter(s => s > minSpaceNeeded)[0]
 }
 
 export default part2
