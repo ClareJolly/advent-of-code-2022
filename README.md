@@ -51,3 +51,4 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 5: Supply Stacks](src/05/summary.md#readme)           |   ⭐   |   🌟   |
 | [Day 6: Tuning Trouble](src/06/summary.md#readme)          |   ⭐   |   🌟   |
 | [Day 7: No Space Left On Device](src/07/summary.md#readme) |   ⭐   |   🌟   |
+| [Day 8: Treetop Tree House](src/08/summary.md#readme) |      |      |
