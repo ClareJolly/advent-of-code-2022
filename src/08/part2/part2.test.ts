@@ -13,6 +13,6 @@ describe('part2', () => {
   it('returns the expected answer with real data', () => {
     const result = part2(realData)
 
-    expect(result).toStrictEqual()
+    expect(result).toStrictEqual(284648)
   })
 })
