@@ -42,17 +42,17 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 
 ## Progress
 
-| Day                                                        | Part 1 | Part 2 |
-| :--------------------------------------------------------- | :----: | :----: |
-| [Day 1: Calorie Counting](src/01/summary.md#readme)        |   ⭐   |   🌟   |
-| [Day 2: Rock Paper Scissors](src/02/summary.md#readme)     |   ⭐   |   🌟   |
-| [Day 3: Rucksack Reorganization](src/03/summary.md#readme) |   ⭐   |   🌟   |
-| [Day 4: Camp Cleanup](src/04/summary.md#readme)            |   ⭐   |   🌟   |
-| [Day 5: Supply Stacks](src/05/summary.md#readme)           |   ⭐   |   🌟   |
-| [Day 6: Tuning Trouble](src/06/summary.md#readme)          |   ⭐   |   🌟   |
-| [Day 7: No Space Left On Device](src/07/summary.md#readme) |   ⭐   |   🌟   |
-| [Day 8: Treetop Tree House](src/08/summary.md#readme)      |   ⭐   |   🌟   |
-| [Day 9: Rope Bridge](src/09/summary.md#readme)             |   ⭐   |   🌟   |
-| [Day 10: Cathode-Ray Tube](src/10/summary.md#readme)       |   ⭐   |   🌟   |
-| [Day 11: Monkey in the Middle](src/11/summary.md#readme)   |   ⭐   |   🌟   |
-| [Day 12: Hill Climbing Algorithm](src/12/summary.md#readme) |      |      |
+| Day                                                         | Part 1 | Part 2 |
+| :---------------------------------------------------------- | :----: | :----: |
+| [Day 1: Calorie Counting](src/01/summary.md#readme)         |   ⭐   |   🌟   |
+| [Day 2: Rock Paper Scissors](src/02/summary.md#readme)      |   ⭐   |   🌟   |
+| [Day 3: Rucksack Reorganization](src/03/summary.md#readme)  |   ⭐   |   🌟   |
+| [Day 4: Camp Cleanup](src/04/summary.md#readme)             |   ⭐   |   🌟   |
+| [Day 5: Supply Stacks](src/05/summary.md#readme)            |   ⭐   |   🌟   |
+| [Day 6: Tuning Trouble](src/06/summary.md#readme)           |   ⭐   |   🌟   |
+| [Day 7: No Space Left On Device](src/07/summary.md#readme)  |   ⭐   |   🌟   |
+| [Day 8: Treetop Tree House](src/08/summary.md#readme)       |   ⭐   |   🌟   |
+| [Day 9: Rope Bridge](src/09/summary.md#readme)              |   ⭐   |   🌟   |
+| [Day 10: Cathode-Ray Tube](src/10/summary.md#readme)        |   ⭐   |   🌟   |
+| [Day 11: Monkey in the Middle](src/11/summary.md#readme)    |   ⭐   |   🌟   |
+| [Day 12: Hill Climbing Algorithm](src/12/summary.md#readme) |   ⭐   |   🌟   |
