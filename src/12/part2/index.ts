@@ -9,7 +9,7 @@ const coOrdsToString = ([row, col]: number[]) => `${row} ${col}`
 const part2 = (inputData: string[]): number => {
   const data = inputData.map(d => d.split(''))
 
-  const [numberOfRows, numberOfCols] = [data.length, data[0].length]
+  const [rowsTotal, colsTotal] = [data.length, data[0].length]
 
   let starts: number[][] = []
   let end: number[] = []
@@ -30,10 +30,10 @@ const part2 = (inputData: string[]): number => {
     })
   })
 
-  const isAtMostOneHigher =
-    (currentElevation: number): ((arg: number[]) => boolean) =>
+  const isValidStep =
+    (curr: number): ((arg: number[]) => boolean) =>
     ([row, col]: number[]): boolean => {
-      return mapped[row][col] - currentElevation <= 1
+      return mapped[row][col] - curr <= 1
     }
 
   const paths: number[] = []
@@ -43,24 +43,24 @@ const part2 = (inputData: string[]): number => {
     let bestPath = Number.POSITIVE_INFINITY
 
     while (queue.length) {
-      const [pos, steps] = queue.shift()!
+      const [position, steps] = queue.shift()!
 
-      if (coOrdsToString(pos) === coOrdsToString(end)) {
+      if (coOrdsToString(position) === coOrdsToString(end)) {
         bestPath = steps
         break
       }
 
-      const checkPositions = directionsMap.map(([dRow, dCol]) => {
-        return [pos[0] + dRow, pos[1] + dCol]
+      const checkpositionitions = directionsMap.map(([dRow, dCol]) => {
+        return [position[0] + dRow, position[1] + dCol]
       })
-      const isOnGrid = checkPositions.filter(
-        ([row, col]: number[]) => row >= 0 && row < numberOfRows && col >= 0 && col < numberOfCols,
+      const isOnGrid = checkpositionitions.filter(
+        ([y, x]: number[]) => y >= 0 && y < rowsTotal && x >= 0 && x < colsTotal,
       )
-      const isValid = isOnGrid.filter(isAtMostOneHigher(mapped[pos[0]][pos[1]]))
-      const notVisited = isValid.filter(pos => !visited.has(coOrdsToString(pos)))
-      notVisited.forEach(pos => {
-        visited.add(coOrdsToString(pos))
-        queue.push([pos, steps + 1])
+      const isValid = isOnGrid.filter(isValidStep(mapped[position[0]][position[1]]))
+      const notVisited = isValid.filter(position => !visited.has(coOrdsToString(position)))
+      notVisited.forEach(position => {
+        visited.add(coOrdsToString(position))
+        queue.push([position, steps + 1])
       })
     }
 
