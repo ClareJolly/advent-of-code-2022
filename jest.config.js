@@ -9,4 +9,9 @@ module.exports = {
   clearMocks: true,
   coverageDirectory: 'coverage',
   testPathIgnorePatterns: ['./src/template', './src/tmp'],
+  globals: {
+    'ts-jest': {
+      diagnostics: false
+    }
+  }
 }
