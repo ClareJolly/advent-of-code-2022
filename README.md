@@ -56,4 +56,4 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 | [Day 10: Cathode-Ray Tube](src/10/summary.md#readme)        |   ⭐   |   🌟   |
 | [Day 11: Monkey in the Middle](src/11/summary.md#readme)    |   ⭐   |   🌟   |
 | [Day 12: Hill Climbing Algorithm](src/12/summary.md#readme) |   ⭐   |   🌟   |
-| [Day 13: Distress Signal](src/13/summary.md#readme) |      |      |
+| [Day 13: Distress Signal](src/13/summary.md#readme)         |   ⭐   |        |
