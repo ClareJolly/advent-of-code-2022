@@ -33,7 +33,6 @@ const comparePacket = (left: Packet[], right: Packet[]): boolean | undefined => 
 
 const part1 = (inputData: string[]): number => {
   const pairs = batchByBlankLines(inputData).map(d => d.map(dd => JSON.parse(dd)))
-  console.dir(pairs)
 
   let sum = 0
 
