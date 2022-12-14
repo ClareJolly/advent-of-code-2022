@@ -1,4 +1,4 @@
-# 🎄 🎅 🎄 Day 14: Regolith Reservoir 🎄 🎅 🎄 
+# 🎄 🎅 🎄 Day 14: Regolith Reservoir 🎄 🎅 🎄
 
 The distress signal leads you to a giant waterfall! Actually, hang on - the signal seems like it's coming from the waterfall itself, and that doesn't make any sense. However, you do notice a little path that leads **behind** the waterfall.
 
@@ -10,10 +10,9 @@ Fortunately, your <a href="/2018/day/17">familiarity</a> with analyzing the path
 
 Your scan traces the path of each solid rock structure and reports the `x,y` coordinates that form the shape of the path, where `x` represents distance to the right and `y` represents distance down. Each path appears as a single line of text in your scan. After the first point of each path, each point indicates the end of a straight horizontal or vertical line to be drawn from the previous point. For example:
 
-
 ```
-498,4 -&gt; 498,6 -&gt; 496,6
-503,4 -&gt; 502,4 -&gt; 502,9 -&gt; 494,9
+498,4 -> 498,6 -> 496,6
+503,4 -> 502,4 -> 502,9 -> 494,9
 
 ```
 
@@ -22,7 +21,6 @@ This scan means that there are two paths of rock; the first path consists of two
 The sand is pouring into the cave from point `500,0`.
 
 Drawing rock as `#`, air as `.`, and the source of the sand as `+`, this becomes:
-
 
 ```
 
@@ -48,7 +46,6 @@ A unit of sand always falls **down one step** if possible. If the tile immediate
 
 So, drawing sand that has come to rest as `o`, the first unit of sand simply falls straight down and then stops:
 
-
 ```
 ......+...
 ..........
@@ -64,7 +61,6 @@ So, drawing sand that has come to rest as `o`, the first unit of sand simply fal
 ```
 
 The second unit of sand then falls straight down, lands on the first one, and then comes to rest to its left:
-
 
 ```
 ......+...
@@ -82,7 +78,6 @@ The second unit of sand then falls straight down, lands on the first one, and th
 
 After a total of five units of sand have come to rest, they form this pattern:
 
-
 ```
 ......+...
 ..........
@@ -98,7 +93,6 @@ After a total of five units of sand have come to rest, they form this pattern:
 ```
 
 After a total of 22 units of sand:
-
 
 ```
 ......+...
@@ -116,7 +110,6 @@ After a total of 22 units of sand:
 
 Finally, only two more units of sand can possibly come to rest:
 
-
 ```
 ......+...
 ..........
@@ -132,7 +125,6 @@ Finally, only two more units of sand can possibly come to rest:
 ```
 
 Once all `**24**` units of sand shown above have come to rest, all further sand flows out the bottom, falling into the endless void. Just for fun, the path any new sand takes before falling forever is shown here with `~`:
-
 
 ```
 .......+...
